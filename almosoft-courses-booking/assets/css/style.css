@@ -1,0 +1,1188 @@
+.buttons-container{
+	display: none;!important;
+}
+.booking_wrapper{
+	margin:auto;
+	background:#F5F5F5;
+	position:relative;
+	width:100%;
+}
+
+.hide_booking_step{
+	display:none;
+}
+
+.booking_wrapper .booking_steps{
+	position:relative;
+}
+
+.booking_wrapper .progresswrapper{
+	width:100%;
+}
+
+.progresswrapper .steps_label {
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	margin-bottom:20px;
+	padding-top: 20px;
+}
+
+.progresswrapper .steps_label > span{
+	width:25%;
+	display:inline-block;
+	text-align: center;
+}
+
+.steps_progress_bar{
+	position:relative;
+}
+
+.progresswrapper .steps_label span.active{
+	font-weight:600;
+}
+
+.steps_progress_bar .pending_steps_fill{
+	background-color:#DCDCDC;
+	height:7px;
+	line-height:7px;
+}
+
+.steps_progress_bar .completed_steps_fill{
+	background-color:#ff6a00;
+	height:7px;
+	line-height:7px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:25%;
+	transition: all 0.8s;
+}
+
+.select2-selection.select2-selection--multiple{
+	background:#FDFDFD;
+	border-radius:0px !important;
+	height:75px;
+	line-height: 30px;
+	padding:10px;
+	border: 0px !important;
+	font-size: 24px;
+	font-weight: 400;
+}
+
+
+.select2-selection--multiple:before {
+    content: "";
+	position: absolute;
+	right: 14px;
+	top: 42%;
+	border-top: 8px solid #000;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	display: inline-block;
+}
+
+
+.book_step_one_inner{
+	display:flex;
+	padding: 0 0px 30px 0px;
+}
+
+.book_col_1 {width: 8.33%;}
+.book_col_2 {width: 16.66%;}
+.book_col_3 {width: 25%;}
+.book_col_4 {width: 33.33%;}
+.book_col_5 {width: 41.66%;}
+.book_col_6 {width: 50%;}
+.book_col_7 {width: 58.33%;}
+.book_col_8 {width: 66.66%;}
+.book_col_9 {width: 75%;}
+.book_col_10 {width: 83.33%;}
+.book_col_11 {width: 91.66%;}
+.book_col_12 {width: 100%;}
+
+
+.book_col_2{
+	width:49.5%;	
+}
+
+.book_col_2 select{width:100%;}
+
+.book_step_one{
+	margin-top:30px;
+}
+
+.book_step_one_inner .select2.select2-container{
+	width:100% !important;
+}
+
+.book_step_one_inner .select2.select2-container ul{
+	margin:0px;
+}
+
+.booking_wrapper  .button{
+	height:75px;
+	width:100%;
+	background:#ff6a00;
+	font-size:24px;
+	line-height:24px;
+	text-align:center;
+	cursor:pointer;
+	color:#fff;
+}
+.booking_wrapper .btn{
+	background:#ff6a00;
+	text-align:center;
+	cursor:pointer;
+	color:#fff;
+	font-size:20px;
+	padding: 2px 15px !important;
+	border-radius: 0px !important;
+	height: 43px !important;
+	line-height: 43px;
+	display: inline-block;
+}
+
+.booking_wrapper  .button:hover{background:#CB3176 !important;color:#fff !important;}
+.booking_action{
+	padding:15px;
+	display:none;
+}
+
+.booking_loader {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #ff6a00; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin_book 2s linear infinite;
+  margin: auto;
+}
+
+.booking_invalid{border:1px solid #ff6a00 !important;}
+.invalid_input{color:#ff6a00;font-size:14px;display:block;}
+
+@keyframes spin_book {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.bookingoverlay{
+	position:absolute;
+	display:none;
+	height:100%;
+	width:100%;
+	top:0px;
+	left:0px;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(207,205,205,0.1);
+	z-index: 2; 
+	cursor: pointer;
+	align-items:center;
+}
+
+.clearfix{
+	overflow: auto;
+}
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.booking_action .previous{
+	display:inline-block;
+}
+.booking_action .next{
+	
+}
+.booking_action > div:last-child{
+	text-align:right;
+}
+
+.book_step{
+    padding: 15px;
+}
+
+.thankyoumsg{
+	font-size:20px;
+	line-height:24px;
+}
+
+#previous_step img{
+	width:135px;
+	cursor:pointer;
+}
+
+/** step 2 css date finder */
+.date_form_row{
+	display:flex;
+	flex-wrap:nowrap;
+	margin-bottom:15px;
+	align-items : center;
+}
+
+.mobileonly{
+	display:none;
+}
+.desktoponly{
+	display:block;
+}
+
+#date_finder_wrapper .course_date i{
+	position: absolute;
+	right: 10px;
+	top: 36%;
+	color: #FE6B01;
+	z-index: 999;
+	font-size: 23px;
+	pointer-events:none;
+}
+
+.date_form_row input:focus{
+	outline:none;
+}
+.date_form_row .course_code{width:10%;}
+.date_form_row .location_code{width:40%;}
+.date_form_row .course_date{width:40%;position:relative;}
+.date_form_row .course_action{width:10%;height:70px;}
+.date_form_row .course_action .remove{
+	height:100%;width:100%;
+	text-align:center;
+	display: flex;
+	align-items: center;
+	font-size:23px;
+	color:#FE6B01;
+}
+.location_code select{
+	width: 97%;
+	height: 40px;
+	border-bottom: #ccc;
+	border-top: 0px;
+	border-left: 0px;
+}
+.course_date input{
+	background-color:#fff !important;
+	height:40px;
+	border:none;
+	border-collapse: collapse;
+	box-shadow: none;
+}
+.course_date img{
+	display: inline-block;
+	vertical-align: middle;
+	width: 25px;
+	height: auto;
+}
+.course_action{text-align:center;}
+.course_action span{
+	cursor:pointer; 
+	display:inline-block; 
+	text-align:center;
+    padding-left: 20px;
+    padding-top: 4px;
+}
+.select2-container--default .select2-selection--single{
+	border: none !important;
+	border-radius:0px !important;
+	height: 40px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 70px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+	height: 70px !important;
+}
+.select2-container .select2-selection--single{
+	height: 75px !important;
+	font-size: 24px;
+	font-weight: 400;
+}
+.course_date .select2.select2-container{
+	width:100% !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+	width:35px !important;
+}
+
+.course_date .select2-selection__arrow{
+	
+}
+.course_date .select2-selection__arrow b{display:none;}
+/** date finder end */
+
+/** step 3 css start */
+.booking_items{
+	background:#fff;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 140%;
+	
+}
+.booking_grid_heading{
+	display:flex;
+	align-items:center;
+	margin-bottom:15px;
+	font-weight:400;
+	padding: 15px;
+	border-bottom: 2px solid #ccc;
+	font-size:24px;
+	line-height:24px;
+	color:#1A1316;
+}
+
+.booking_grid_heading .booking_title_col_one, .booking_item_col_one{
+	width:10%;
+}
+.booking_grid_heading .booking_title_col_two, .booking_item_col_two{
+	width:15%;
+}
+.booking_grid_heading .booking_title_col_three, .booking_item_col_three{
+	width:25%;
+}
+.booking_grid_heading .booking_title_col_four, .booking_item_col_four{
+	width:24%;
+}
+.booking_grid_heading .booking_title_col_five, .booking_item_col_five{
+	width:13%;
+}
+.booking_grid_heading .booking_title_col_six, .booking_item_col_six{
+	width:13%;
+}
+.booking_item_body{padding:15px;}
+.booking_item{
+	display:flex;
+	align-items:center;
+	padding: 5px 0px;
+	line-height:24px;
+}
+.booking_item span{
+	font-size:18px;
+	color:#1A1316;
+}
+.customer_info{
+	margin-top: 20px;
+}
+
+.flexcol_two{
+	display:flex;
+	align-items:center;
+}
+.form_control_row{
+	height: 135px;
+}
+
+.form_control_row .flexcol_two{
+	align-items: baseline !important;
+}
+
+#date_of_birth{
+	border: 0px;
+	height: 70px;
+	width: 100%;
+	outline: none;
+	padding-left: 5px;
+	background: #FDFDFD;
+	font-size: 24px;
+	color:#43454b;
+}
+#date_format_valid_msg{display:none;font-weight:300 !important;font-size:19px;margin-top:3px;}
+
+.form_control_row input[type=text],
+.form_control_row input[type=email],
+.form_control_row select
+{
+	height:70px;
+	line-height:24px;
+	background:#FDFDFD;
+	border:none;
+	width:100%;
+	font-size:24px;
+	font-weight:400;
+	padding: 5px 8px;
+}
+.form_control_row label{
+	font-style: normal;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 140%;
+	display: block;
+}
+
+.form_control_row input[type=text]:focus,
+.form_control_row input[type=email]:focus{
+	outline:none;
+	color:#199CD5;
+	background:#FDFDFD;
+}
+
+.form_control_row .form_col_one,.form_control_row .form_col_two{
+	width:50%;
+}
+.form_control_row .form_col_one{
+	padding-right:15px;
+	position:relative;
+}
+.form_control_row .form_col_two{
+	padding-left:15px;
+}
+.course_date .select2-container--default .select2-selection--single .select2-selection__arrow{
+	top: 26% !important;
+	right:8px !important;
+}
+.form_control_row .form_col_one img.ui-datepicker-trigger{
+	display: inline-block;
+	position: absolute;
+	right: 24px;
+	top: 47%;
+	
+}
+.form_control_row .select2.select2-container{
+	width:100% !important;
+}
+/** step 3 end */
+/** step 4 css start */
+.payment_options{
+	
+}
+.payment_options ul{
+	padding:0px;
+	margin:0px;
+	list-style:none;
+}
+.payment_options ul li{
+	line-height: 30px;
+	font-weight: 600;
+}
+.payment_options ul li input{margin-right:15px;outline:none;}
+.booking_footer_totals{
+	display:flex;
+	align-items:center;
+	padding: 15px;
+	font-weight:400;
+	font-size:20px;
+	color:#1A1316;
+}
+.booking_footer_totals .total_label{
+	width:76%;
+	
+}
+.booking_footer_totals .grand_total{
+	width:13%;
+}
+
+.booking_footer_totals .partial_total{
+	width:13%;
+}
+
+#pay_now{display:none;}
+#terms_required{
+	padding: 1em;
+}
+#terms_required input{
+	transform: scale(1.5);
+}
+
+
+#booking_completed {
+    transition: all 0.5s;
+    font-size: 28px;
+    font-weight: 600;
+    min-height: 150px;
+    text-align: center;
+    width: 100%;
+    display: none;
+}
+#booking_completed p{width:96%;margin:auto;}
+.booking_item .label{display:none;}
+.calendar_icon img{
+	position: absolute;
+	right: 24px;
+	top: 47%;
+	width:auto !important;
+}
+/** step 4 end */
+#header_booking_form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;	
+}
+
+#header_booking_form .select2.select2-container,#header_step_action{
+	width:98% !important;
+}
+
+#header_step_action{
+	height: 75px;
+	width: 100%;
+	background: #ff6a00;
+	font-size: 24px;
+	line-height: 24px;
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #000 transparent transparent transparent;
+    border-style: solid;
+    border-width: 8px 7px 0 7px !important;
+    height: 0;
+    left: 50%;
+    margin-left: -4px;
+    margin-top: -2px;
+    position: absolute;
+    top: 50%;
+    width: 0;
+}
+/** Header form **/
+.header_form {
+            width: 100%;
+            max-width: 1120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #FFFFFF;
+            box-shadow: 0px 44px 64px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .couse_selector {
+            width: 35%;
+        }
+
+        .selector_btn {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 24px;
+    border: 1px solid #EAEAEA;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+}
+
+        .vrach_btn,
+        .niwo_btn {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 190px;
+        }
+
+        .vrach_btn a,
+        .niwo_btn a {
+            text-decoration: none;
+            color: #111;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 28px;
+            cursor: pointer;
+            padding: 16px 24px;
+        }
+
+        .vrach_btn.active,
+        .niwo_btn.active {
+            background: #1682C0;
+        }
+
+        .vrach_btn.active a,
+        .niwo_btn.active a {
+            color: #fff;
+        }
+
+        .courses_tabs {
+            display: flex;
+            width: 65%;
+        }
+
+        .vrach_tab,
+        .niwo_tab {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .form_btn.head_btn {
+            border-radius: 12px;
+    padding: 16px 24px;
+    height: 60px !important;
+    border: none;
+    margin: 15px 24px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px !important;
+    line-height: 21px !important;
+    letter-spacing: 0.02em;
+    max-width: 160px;
+    background: #ff6a00 !important;
+    width: 100% !important;
+        }
+
+        .courses_tabs>div:last-child {
+            display: none;
+        }
+        .course_select .select2.select2-container,
+        .location_select .select2.select2-container {
+    width: 100% !important;
+}
+
+/** Main form **/
+
+.progresswrapper .steps_label > span img {
+    width: 40px;
+    height: 40px;
+}
+
+.header_title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #222222;
+}
+
+.steps_text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    color: #212244;
+}
+
+.progresswrapper .steps_label > span {
+    padding: 0 5px;
+}
+
+.steps_progress_bar .completed_steps_fill {
+    background-color: #FF6A00;
+    height: 5px;
+    line-height: 5px;
+}
+
+.steps_progress_bar .pending_steps_fill {
+    background-color: #EAEAEA;
+    height: 5px;
+    line-height: 5px;
+}
+
+.steps_progress_bar {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.booking_wrapper {
+    margin: auto;
+    background: #fff;
+    position: relative;
+    width: 100%;
+    padding: 30px 50px 50px;
+    box-shadow: 0px 20px 80px rgb(51 78 123 / 10%);
+    border-radius: 10px;
+}
+
+.book_col_select {
+    width: 100%;
+}
+
+.book_col_btn {
+    width: 150px;
+    margin-left: 20px;
+}
+
+.select2-selection.select2-selection--multiple {
+    height: auto;
+    padding: 15px 21px;
+    border: 0px !important;
+    font-family: inherit;
+    background: #F6F6F6;
+    border-radius: 12px !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #212244 !important;
+}
+
+.select2-selection--multiple:before {
+    content: "";
+    position: absolute;
+    right: 14px;
+    top: 42%;
+    background: url(../images/arrow.svg);
+    width: 14px;
+    height: 8px;
+    border: none;
+    display: inline-block;
+}
+
+.button.main_form_btn {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    padding: 20px 34px;
+    border: none;
+    background: #FF6A00;
+    border-radius: 12px;
+    height: auto;
+    max-width: 150px;
+}
+
+.select2-container--open .select2-dropdown {
+    left: 0;
+    top: 25px;
+    background: #f6f6f6;
+    border: none;
+    border-radius: 12px;
+}
+
+::-webkit-input-placeholder {
+    color: #212244;
+    font-size: 18px;
+}
+
+.previous.backbtn {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #FF6A00;
+    border: 2px solid #FF6A00;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 20px 32px;
+}
+
+.booking_action {
+    
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select2-container .select2-selection--single {
+    height: 60px !important;
+    padding: 15px 21px;
+    border: 0px !important;
+    font-family: inherit;
+    background: #F6F6F6;
+    border-radius: 12px !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #212244 !important;
+}
+
+.course_code span {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #222222;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #212244;
+    line-height: 30px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    background: url(../images/arrow.svg);
+    width: 14px;
+    height: 8px;
+    border: none;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 60px !important;
+}
+
+.fa-cal {
+    background: url(../images/calendar-fill.svg);
+    width: 25px;
+    height: 24px;
+}
+
+.fa-trashs {
+    background: url(../images/trash.svg);
+    width: 25px;
+    height: 24px;
+}
+
+#date_finder_wrapper .course_date i {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+    color: #fff;
+    z-index: 999;
+    font-size: 0;
+    pointer-events: none;
+}
+
+.date_form_row .course_action {
+    width: 10%;
+    height: 60px;
+}
+
+.course_action span {
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    padding-left: 20px;
+    padding-top: 0;
+}
+
+.date_form_row .course_code {
+    width: 9%;
+}
+
+.date_form_row .course_action {
+    width: 11%;
+    height: 60px;
+}
+
+#date_of_birth {
+    font-family: inherit;
+    padding: 5px 8px;
+    border: 0px;
+    height: 60px;
+    width: 100%;
+    outline: none;
+    padding-left: 5px;
+    background: #F6F6F6;
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #94959B;
+}
+
+.form_control_row input[type=text], .form_control_row input[type=email], .form_control_row select {
+    font-family: inherit;
+    padding: 5px 8px;
+    border: 0px;
+    height: 60px;
+    width: 100%;
+    outline: none;
+    padding-left: 5px;
+    background: #F6F6F6;
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #94959B;
+}
+
+#terms_required input {
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+
+.button.main_form_btn:hover {
+    background: #EAEAEA !important;
+    color: #94959B !important;
+}
+
+.date_form_row .course_action .remove {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.02em;
+    color: #222222;
+}
+
+.booking_item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0px;
+    justify-content: space-between;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    color: #222222;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.booking_grid_heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-bottom: none;
+    justify-content: space-between;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    color: #222222;
+}
+
+.booking_footer_totals {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    color: #222222;
+}
+
+.form_control_row label {
+    font-family: inherit;
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    color: #222222;
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    vertical-align: middle;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.02em;
+    color: #222222;
+}
+
+#vrach_tab,
+#niwo_tab {
+    width: 100%;
+}
+.course_select, .location_select {
+    width: 100%;
+    margin: 0 5px;
+}        
+.form_btn.head_btn:focus {
+    border: none !important;
+    box-shadow: none !important;
+    color: #fff;
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+.header_form {
+    flex-direction: column;
+}
+.couse_selector {
+    width: 100%;
+}
+.vrach_btn, .niwo_btn {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.courses_tabs {
+    display: flex;
+    width: 100%;
+}
+#vrach_tab, #niwo_tab {
+    width: 100%;
+    margin: 0 24px;
+}
+.form_btn.head_btn {
+    margin: 15px 0 15px 5px;
+}
+
+}
+
+@media only screen and (max-width: 768px) {
+.vrach_tab, .niwo_tab {
+    flex-direction: column;
+}
+.course_select, .location_select {
+    width: 100%;
+    margin: 10px 5px;
+}
+.book_col_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 0px;
+}
+.button.main_form_btn {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    padding: 20px 34px;
+    border: none;
+    background: #FF6A00;
+    border-radius: 12px;
+    height: auto;
+    max-width: 100%;
+}
+	.customer_info .form_control_row{
+	  height:auto;
+	}
+
+	.customer_info .flexcol_two{
+	  flex-direction:column;
+	}
+	.customer_info .form_control_row > div{
+	  width:100%;
+	  padding:0px;
+	  height: 135px;
+	}
+	.booking_grid_heading{display:none;}
+	
+	.booking_item{
+		flex-direction:column;
+		line-height: 30px !important;
+		font-size:18px;
+		border-bottom:1px solid #ccc;
+		padding-bottom:15px;
+		margin-bottom:10px;
+	}
+	.booking_item_body .booking_item:last-child{
+		border-bottom:none !important;
+	}
+	.booking_item .label{
+		width: 45%;
+		display: inline-block;
+		line-height: 30px;
+	}
+	.booking_footer_totals .total_label{width:45%;}
+	.booking_footer_totals .grand_total{width:25%;}
+	.booking_footer_totals .partial_total{width:25%;}
+	.booking_grid_heading .booking_title_col_one, .booking_item_col_one{
+		width:100%;
+	}
+	.booking_grid_heading .booking_title_col_two, .booking_item_col_two{
+		width:100%;
+	}
+	.booking_grid_heading .booking_title_col_three, .booking_item_col_three{
+		width:100%;
+	}
+	.booking_grid_heading .booking_title_col_four, .booking_item_col_four{
+		width:100%;
+	}
+	.booking_grid_heading .booking_title_col_five, .booking_item_col_five{
+		width:100%;
+	}
+	.booking_grid_heading .booking_title_col_six, .booking_item_col_six{
+		width:100%;
+	}
+	.book_step_one_inner{
+		flex-direction:column;	
+	}
+	.book_step_one_inner .book_col_7{margin-bottom:20px;}
+	.date_form_row{flex-wrap: wrap;}
+	.date_form_row .course_code{width:18%;margin-bottom: 20px;}
+	.date_form_row .location_code{width:82%;margin-bottom: 20px;}
+	.date_form_row .course_date{width:82%;}
+	.date_form_row .select2.select2-container{width:100% !important;}
+	
+	.book_col_sm_1 {width: 8.33%;}
+	.book_col_sm_2 {width: 16.66%;}
+	.book_col_sm_3 {width: 25%;}
+	.book_col_sm_4 {width: 33.33%;}
+	.book_col_sm_5 {width: 41.66%;}
+	.book_col_sm_6 {width: 50%;}
+	.book_col_sm_7 {width: 58.33%;}
+	.book_col_sm_8 {width: 66.66%;}
+	.book_col_sm_9 {width: 75%;}
+	.book_col_sm_10 {width: 83.33%;}
+	.book_col_sm_11 {width: 91.66%;}
+	.book_col_sm_12 {width: 100%;}
+	 #header_booking_form{
+		 flex-direction:column;
+	 }
+	  #header_booking_form >div{
+		  margin-bottom:15px;
+	  }
+	  
+	  #header_booking_form .select2.select2-container,#header_step_action{
+		width:100% !important;
+	}
+	
+	.mobileonly{
+		display:block;
+	}
+	.desktoponly{
+		display:none;
+	}
+	
+	.date_form_row .course_action{width:18%;height:70px;}
+	
+	.date_form_row .course_action .remove{
+		padding-left: 0px !important;
+	}
+
+}
+
+@media only screen and (max-width: 500px) {
+	
+}
+
+@media only screen and (max-width: 360px) {
+	
+}
+
+@media (max-width: 700px) {
+	.progresswrapper .steps_label > span{
+		font-size: 14px;
+	}
+	.steps_text{
+		font-size: 12px;
+	}
+}
+@media (max-width: 500px) {
+	.steps_text{
+		display: none;
+	}
+	.progresswrapper .steps_label > span{
+		font-size: 13px;
+	}
+}
