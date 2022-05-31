@@ -165,13 +165,19 @@ class Almosoft_Settings_API {
      * @param array   $args settings field args
      */
     function callback_text( $args ) {
-
+//echo '<pre>2222222222</ore>';
+//echo '<pre>$args=';print_r($args);
+//echo '</pre>';
         $value       = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
+        $valuea      = esc_attr( $this->get_option( $args['id'].'a', $args['section'], $args['std'] ) );
         $size        = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
         $type        = isset( $args['type'] ) ? $args['type'] : 'text';
         $placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="' . $args['placeholder'] . '"';
 
         $html        = sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder );
+		if ($args['section'] == 'almosoft_niwo' || $args['section'] == 'almosoft_price') 
+        $html       .= '</td><td>'.sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s/>', $type, $size, $args['section'], $args['id'].'a', $valuea, $placeholder );
+
         $html       .= $this->get_field_description( $args );
 
         echo $html;
@@ -478,8 +484,12 @@ class Almosoft_Settings_API {
     function get_option( $option, $section, $default = '' ) {
 
         $options = get_option( $section );
-
+//echo '<pre>$option='.$option.' $section='.$section.'</pre>';
+//echo '<pre>$options=';print_r($options);echo '</pre>';
+//echo '<pre>isset($options[$option])='.isset($options[$option]).'</pre>';
         if ( isset( $options[$option] ) ) {
+			
+//echo '<pre>$options[$option]='.$options[$option].'</pre>';
             return $options[$option];
         }
 
@@ -522,9 +532,12 @@ class Almosoft_Settings_API {
                 <div id="<?php echo $form['id']; ?>" class="group" style="display: none;">
                     <form method="post" action="options.php">
                         <?php
-                        do_action( 'wsa_form_top_' . $form['id'], $form );
+//                        do_action( 'wsa_form_top_' . $form['id'], $form );
                         settings_fields( $form['id'] );
                         do_settings_sections( $form['id'] );
+//echo '<pre>';
+//print_r($this->settings_fields[ $form['id'] ]);
+//echo '</pre>';
                         do_action( 'wsa_form_bottom_' . $form['id'], $form );
                         if ( isset( $this->settings_fields[ $form['id'] ] ) ):
                         ?>

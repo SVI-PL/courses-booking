@@ -32,8 +32,14 @@ function almosoft_init_booking_class(){
 			add_shortcode('booking_steps_form', array($this, 'booking_steps_form'));
 			add_shortcode('header_booking_form', array($this, 'header_booking_form'));
 			
-			$almosoft_booking_options = get_option('almosoft_booking');
-			$almosoft_payment_config = get_option('almosoft_payment');
+			$almosoft_booking_options 	= get_option('almosoft_booking');
+			$almosoft_payment_config 	= get_option('almosoft_payment');
+			$almosoft_niwo_config 		= get_option('almosoft_niwo');
+			$almosoft_price 			= get_option('almosoft_price');
+			$this->almosoft_nivo_config	= array_merge($almosoft_niwo_config,$almosoft_price);
+//echo "<pre>almosoft_price="; print_r($almosoft_price); echo"</pre>";
+//echo "<pre>almosoft_payment_config="; print_r($almosoft_payment_config); echo"</pre>";
+//echo "<pre>almosoft_nivo_config="; print_r($almosoft_niwo_config); echo"</pre>";
 			$this->courses = (isset($almosoft_booking_options['available_courses']))? $almosoft_booking_options['available_courses']: '';
             $this->niwo_courses = (isset($almosoft_booking_options['niwo_courses']))? $almosoft_booking_options['niwo_courses']: '';
 			$this->referral_options = (isset($almosoft_booking_options['referral_options']))? $almosoft_booking_options['referral_options']: '';
@@ -938,18 +944,19 @@ Betaling niet gelukt. Probeer  nog een keer.';
 			$location_city  = $this->get_get('city');
 
 			$almosoft_data_array = array(
-				'plugin_base_url' => untrailingslashit( plugin_dir_url( __FILE__ ) ).'/assets/',
-				'location_options'=>$this->stringconvertto_options($this->locations, array('current_val'=>'','blank_option'=>true, 'blank_option_label'=>'Kies uw locatie')),
-				'ajaxurl'=>admin_url( 'admin-ajax.php' ),
-				'price'=>$this->price,
-				'part_price'=>$this->partial_payment,
-				'course_code'=>htmlspecialchars($course_code),
-				'location_city'=>$location_city,
-				'bookingurl'=>site_url().'/vrachtwagen-theorie/',
-                'bookingurl_niwo'=>site_url().'/niwo/wat-is-niwo/',
-				'registration_failed'=>$this->registration_failed,
-				'currency'=>$this->currency,
-				'curr_symbol'=>$this->curr_symbol
+				'plugin_base_url' 		=> untrailingslashit( plugin_dir_url( __FILE__ ) ).'/assets/',
+				'location_options'		=> $this->stringconvertto_options($this->locations, array('current_val'=>'','blank_option'=>true, 'blank_option_label'=>'Kies uw locatie')),
+				'ajaxurl'				=> admin_url( 'admin-ajax.php' ),
+				'price'					=> $this->price,
+				'part_price'			=> $this->partial_payment,
+				'prices'				=> $this->almosoft_nivo_config,
+				'course_code'			=> htmlspecialchars($course_code),
+				'location_city'			=> $location_city,
+				'bookingurl'			=> site_url().'/vrachtwagen-theorie/',
+                'bookingurl_niwo'		=> site_url().'/niwo/wat-is-niwo/',
+				'registration_failed'	=> $this->registration_failed,
+				'currency'				=> $this->currency,
+				'curr_symbol'			=> $this->curr_symbol
 			);
 
 			//after wp_enqueue_script

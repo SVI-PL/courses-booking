@@ -1,6 +1,7 @@
+var course_code = '';
 (function ( $ ) {
 	$('.progresswrapper').contents().filter(function() { return this.nodeType === 3; }).remove();
-
+console.log('object_almosoft=',object_almosoft);
 
 	$('#courses_code').select2(
 		{
@@ -144,12 +145,17 @@
 		if(step_index==2){
 			
 			selectedValues = $('#courses_code').val();
-			
+			course_code		= selectedValues 	
+console.log('selectedValues='+selectedValues+ '  course_code='+course_code);
 			render_step_two_form(selectedValues);
 			
 		}
 		
 		if(step_index==3){
+			
+			let price 		= 0;
+			let part_price 	= 0;
+
 			
 			var booking_item_body = $(".booking_item_body");
 			booking_item_body.html('');
@@ -180,12 +186,19 @@
 				var booking_item_col_three = $('<div></div>');
 				booking_item_col_three.addClass('booking_item_col_three');
 				booking_item_col_three.html("<span class='label'>Cursus Datum</span><span class='col_info'>"+selected_row_data.date+"</span>");
-				
+console.log('course_code='+course_code);
+				price 		= object_almosoft.prices[course_code];
+				part_price 	= object_almosoft.prices[course_code+'a'];
+console.log('price='+price+' part_price='+part_price);
+				booking_grand_total = Number(booking_grand_total) + Number(price);
+				booking_partial_total = Number(booking_partial_total) + Number(part_price);
+
 				var booking_item_col_four = $('<div></div>');
 				booking_item_col_four.addClass('booking_item_col_four');
-				booking_item_col_four.html("<span class='label'>Tarief</span><span class='col_info'>"+object_almosoft.price+' '+object_almosoft.currency+"</span>");
-				booking_grand_total = Number(booking_grand_total) + Number(object_almosoft.price);
-				booking_partial_total = Number(booking_partial_total) + Number(object_almosoft.part_price);
+				booking_item_col_four.html("<span class='label'>Tarief</span><span class='col_info'>"+price+' '+object_almosoft.currency+"</span>");
+				
+//				booking_grand_total = Number(booking_grand_total) + Number(object_almosoft.price);
+//				booking_partial_total = Number(booking_partial_total) + Number(object_almosoft.part_price);
 				
 				//var booking_item_col_six = $('<div></div>');
 				//booking_item_col_six.addClass('booking_item_col_six');
@@ -198,8 +211,38 @@
 				//booking_item_row.append(booking_item_col_five);
 				//booking_item_row.append(booking_item_col_six);
 				booking_item_body.append(booking_item_row);
+//---------------------------
+				var booking_item_row = $('<div></div>');
+				booking_item_row.addClass('booking_item');
 				
+				var booking_item_col_one = $('<div></div>');
+				booking_item_col_one.addClass('booking_item_col_one');
+				booking_item_col_one.html("<span class='label'>Cursus</span><span class='col_info'>"+selected_row_data.course_type+"</span>");
+				var booking_item_col_two = $('<div></div>');
+				booking_item_col_two.addClass('booking_item_col_two');
+				booking_item_col_two.html("<span class='label'>Locatie</span><span class='col_info'>"+selected_row_data.city+"</span>");
+				var booking_item_col_three = $('<div></div>');
+				booking_item_col_three.addClass('booking_item_col_three');
+				booking_item_col_three.html("<span class='label'>Cursus Datum</span><span class='col_info'></span>");
+				part_price 	= object_almosoft.prices[course_code+'a'];
+console.log('price='+price+' part_price='+part_price);
+				booking_partial_total = Number(booking_partial_total) + Number(part_price);
+
+				var booking_item_col_four = $('<div></div>');
+				booking_item_col_four.addClass('booking_item_col_four');
+				booking_item_col_four.html("<span class='label'>Tarief</span><span class='col_info'>"+part_price+' '+object_almosoft.currency+"</span>");
+				
+				booking_item_row.append(booking_item_col_one);
+				booking_item_row.append(booking_item_col_two);
+				booking_item_row.append(booking_item_col_three);
+				booking_item_row.append(booking_item_col_four);
+				booking_item_body.append(booking_item_row);
+//---------------------------				
 			});
+			booking_grand_total = Number(price) + Number(part_price);
+console.log('booking_grand_total='+booking_grand_total);
+
+
 			$("#grand_total").attr("data-booking-value",booking_grand_total);
 			$("#grand_total").html(booking_grand_total+' '+object_almosoft.currency);
 			customer_booking_info.grand_total = booking_grand_total; 
@@ -632,7 +675,7 @@
 				}
 				
 				if(response.success == true) {
-					
+console.log('response=',response);
 					//$("#date_"+course_type).html(response.data);
 					var number_of_response = response.data.length;
 					
