@@ -1,4 +1,4 @@
-var course_code = '';
+var course_code = [];
 (function ( $ ) {
 	$('.progresswrapper').contents().filter(function() { return this.nodeType === 3; }).remove();
 console.log('object_almosoft=',object_almosoft);
@@ -145,10 +145,7 @@ console.log('object_almosoft=',object_almosoft);
 		if(step_index==2){
 			
 			selectedValues = $('#courses_code').val();
-			course_code		= selectedValues 	
-console.log('selectedValues='+selectedValues+ '  course_code='+course_code);
 			render_step_two_form(selectedValues);
-			
 		}
 		
 		if(step_index==3){
@@ -161,6 +158,7 @@ console.log('selectedValues='+selectedValues+ '  course_code='+course_code);
 			booking_item_body.html('');
 			var booking_grand_total = 0;
 			var booking_partial_total = 0;
+			var num = 0;
 			$(".date_form_row").each(function(){
 				
 				var selected_course = $(this).find(".course_code").val();
@@ -186,16 +184,23 @@ console.log('selectedValues='+selectedValues+ '  course_code='+course_code);
 				var booking_item_col_three = $('<div></div>');
 				booking_item_col_three.addClass('booking_item_col_three');
 				booking_item_col_three.html("<span class='label'>Cursus Datum</span><span class='col_info'>"+selected_row_data.date+"</span>");
-console.log('course_code='+course_code);
-				price 		= object_almosoft.prices[course_code];
-				part_price 	= object_almosoft.prices[course_code+'a'];
+				var	cCode = course_code[num];
+console.log('course_code=',course_code);
+console.log('cCode='+cCode);
+
+				price 		= object_almosoft.prices[cCode];
+				part_price 	= object_almosoft.prices[cCode+'a'];
 console.log('price='+price+' part_price='+part_price);
-				booking_grand_total = Number(booking_grand_total) + Number(price);
-				booking_partial_total = Number(booking_partial_total) + Number(part_price);
+//				booking_grand_total = Number(booking_grand_total) + Number(price);
+//				booking_partial_total = Number(booking_partial_total) + Number(part_price);
 
 				var booking_item_col_four = $('<div></div>');
 				booking_item_col_four.addClass('booking_item_col_four');
 				booking_item_col_four.html("<span class='label'>Tarief</span><span class='col_info'>"+price+' '+object_almosoft.currency+"</span>");
+
+				var booking_item_col_five = $('<div></div>');
+				booking_item_col_five.addClass('booking_item_col_five');
+				booking_item_col_five.html("<span class='label'>Экзамен</span><span class='col_info'>"+part_price+' '+object_almosoft.currency+"</span>");
 				
 //				booking_grand_total = Number(booking_grand_total) + Number(object_almosoft.price);
 //				booking_partial_total = Number(booking_partial_total) + Number(object_almosoft.part_price);
@@ -208,6 +213,7 @@ console.log('price='+price+' part_price='+part_price);
 				booking_item_row.append(booking_item_col_two);
 				booking_item_row.append(booking_item_col_three);
 				booking_item_row.append(booking_item_col_four);
+				booking_item_row.append(booking_item_col_five);
 				//booking_item_row.append(booking_item_col_five);
 				//booking_item_row.append(booking_item_col_six);
 				booking_item_body.append(booking_item_row);
@@ -224,7 +230,7 @@ console.log('price='+price+' part_price='+part_price);
 				var booking_item_col_three = $('<div></div>');
 				booking_item_col_three.addClass('booking_item_col_three');
 				booking_item_col_three.html("<span class='label'>Cursus Datum</span><span class='col_info'></span>");
-				part_price 	= object_almosoft.prices[course_code+'a'];
+				part_price 	= object_almosoft.prices[cCode+'a'];
 console.log('price='+price+' part_price='+part_price);
 				booking_partial_total = Number(booking_partial_total) + Number(part_price);
 
@@ -232,16 +238,22 @@ console.log('price='+price+' part_price='+part_price);
 				booking_item_col_four.addClass('booking_item_col_four');
 				booking_item_col_four.html("<span class='label'>Tarief</span><span class='col_info'>"+part_price+' '+object_almosoft.currency+"</span>");
 				
+				var booking_item_col_five = $('<div></div>');
+				booking_item_col_five.addClass('booking_item_col_four');
+				booking_item_col_five.html("<span class='label'>Экзамен</span><span class='col_info'>"+part_price+' '+object_almosoft.currency+"</span>");
+/*				
 				booking_item_row.append(booking_item_col_one);
 				booking_item_row.append(booking_item_col_two);
 				booking_item_row.append(booking_item_col_three);
 				booking_item_row.append(booking_item_col_four);
+				booking_item_row.append(booking_item_col_five);
 				booking_item_body.append(booking_item_row);
+*/				
 //---------------------------				
+				booking_grand_total += Number(price) + Number(part_price);
+				num++;
 			});
-			booking_grand_total = Number(price) + Number(part_price);
 console.log('booking_grand_total='+booking_grand_total);
-
 
 			$("#grand_total").attr("data-booking-value",booking_grand_total);
 			$("#grand_total").html(booking_grand_total+' '+object_almosoft.currency);
@@ -678,6 +690,11 @@ console.log('booking_grand_total='+booking_grand_total);
 console.log('response=',response);
 					//$("#date_"+course_type).html(response.data);
 					var number_of_response = response.data.length;
+					if (number_of_response>0)
+					{	
+						course_code.push(response.data[0].course_type);
+console.log('course_code=',course_code);
+					};	
 					
 					var available_dates_msg = "Kies uw datum";
 					if(!number_of_response){
