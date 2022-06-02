@@ -5,7 +5,7 @@
             <div class='booking_title_col_two'>Locatie</div>
             <div class='booking_title_col_three'>Cursus Datum</div>
             <div class='booking_title_col_four'>Tarief</div>
-            <div class='booking_title_col_five'>Экзамен</div>
+            <div class='booking_title_col_five'>Examen</div>
             <!-- <div class='booking_title_col_one'>Cursus</div> -->
             <!-- <div class='booking_title_col_two'>Time</div> -->
             <!-- <div class='booking_title_col_three'>Locatie</div> -->
